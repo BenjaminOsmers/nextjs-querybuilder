@@ -1,0 +1,27 @@
+{
+  "name": "nextjs-querybuilder",
+  "version": "1.0.0",
+  "description": "A query builder class for NextJS",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "nextjs",
+    "querybuilder"
+  ],
+  "author": "Benjamin Osmers",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "next": "^13.4.9"
+  }
+}
