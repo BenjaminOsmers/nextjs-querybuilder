@@ -9,15 +9,11 @@ export class QueryBuilder {
   options?: any
 
   constructor(url: string) {
-    const token = getTokenFromCookies()
     this.url = url
     this.method = 'GET'
     this.options = {
       next: {
         revalidate: 0,
-      },
-      headers: {
-        'x-jwt': token,
       },
     } as any
   }
@@ -53,6 +49,15 @@ export class QueryBuilder {
   }
 
   async build() {
+    const token = await getTokenFromCookies()
+
+    if (token) {
+      this.options.headers = {
+        'Content-Type': 'application/json',
+        'X-jwt': `${token}`,
+      }
+    }
+
     const res = await fetch(this.url, this.options)
 
     if (!res.ok) {
